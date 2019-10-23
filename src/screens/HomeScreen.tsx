@@ -1,14 +1,16 @@
 import React, { memo } from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
-import { Headline, Paragraph, Button } from 'react-native-paper';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
+import Header from '../components/Header';
+import Button from '../components/Button';
+import Paragraph from '../components/Paragraph';
 
 const HomeScreen = ({ navigation }) => {
   return (
     <Background>
       <Logo />
-      <Headline>Login Template</Headline>
+      <Header>Login Template</Header>
+
       <Paragraph>
         The easiest way to start with your amazing application.
       </Paragraph>

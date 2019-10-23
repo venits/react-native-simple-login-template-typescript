@@ -16,7 +16,7 @@ const Router = createSwitchNavigator(
     Dashboard,
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: 'LoginScreen',
   }
 );
 

@@ -20,6 +20,11 @@ const Background = ({ children }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
+    width: '100%',
+    maxWidth: 330,
+    alignSelf: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
 });
