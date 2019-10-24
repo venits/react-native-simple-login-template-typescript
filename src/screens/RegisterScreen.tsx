@@ -7,13 +7,18 @@ import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
+import { Navigation } from '../types';
 import {
   emailValidator,
   passwordValidator,
   nameValidator,
 } from '../core/utils';
 
-const RegisterScreen = ({ navigation }) => {
+type Props = {
+  navigation: Navigation;
+};
+
+const RegisterScreen = ({ navigation }: Props) => {
   const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
