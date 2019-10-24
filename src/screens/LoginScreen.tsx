@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -8,8 +8,13 @@ import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
+import { Navigation } from '../types';
 
-const LoginScreen = ({ navigation }) => {
+type Props = {
+  navigation: Navigation;
+};
+
+const LoginScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
 
@@ -36,18 +41,20 @@ const LoginScreen = ({ navigation }) => {
 
       <TextInput
         label="Email"
+        returnKeyType="next"
         value={email.value}
         onChangeText={text => setEmail({ value: text, error: '' })}
         error={!!email.error}
         errorText={email.error}
+        autoCapitalize="none"
         autoCompleteType="email"
         textContentType="emailAddress"
         keyboardType="email-address"
       />
-      {/* <HelperText type="error">Email address is invalid!</HelperText> */}
 
       <TextInput
         label="Password"
+        returnKeyType="done"
         value={password.value}
         onChangeText={text => setPassword({ value: text, error: '' })}
         error={!!password.error}
@@ -66,12 +73,12 @@ const LoginScreen = ({ navigation }) => {
         Login
       </Button>
 
-      <Text style={styles.label}>
-        Don’t have an account?{' '}
+      <View style={styles.row}>
+        <Text style={styles.label}>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
-      </Text>
+      </View>
     </Background>
   );
 };
@@ -81,6 +88,10 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'flex-end',
     marginBottom: 24,
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: 4,
   },
   label: {
     color: theme.colors.secondary,

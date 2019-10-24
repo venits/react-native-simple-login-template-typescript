@@ -1,20 +1,27 @@
 import React, { memo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import Background from '../components/Background';
+import Logo from '../components/Logo';
+import Header from '../components/Header';
+import Paragraph from '../components/Paragraph';
+import Button from '../components/Button';
+import { Navigation } from '../types';
 
-const Dashboard = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Dashboard</Text>
-    </View>
-  );
+type Props = {
+  navigation: Navigation;
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Dashboard = ({ navigation }: Props) => (
+  <Background>
+    <Logo />
+    <Header>Let’s start</Header>
+    <Paragraph>
+      Your amazing app starts here. Open you favourite code editor and start
+      editing this project.
+    </Paragraph>
+    <Button mode="outlined" onPress={() => navigation.navigate('HomeScreen')}>
+      Logout
+    </Button>
+  </Background>
+);
 
 export default memo(Dashboard);
