@@ -6,9 +6,9 @@ type Props = {
   children: React.ReactNode;
 };
 
-function Header({ children }: Props) {
-  return <Text style={styles.header}>{children}</Text>;
-}
+const Header = ({ children }: Props) => (
+  <Text style={styles.header}>{children}</Text>
+);
 
 const styles = StyleSheet.create({
   header: {
